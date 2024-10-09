@@ -22,7 +22,6 @@ ReactDOM.render(
         <App />
       </Router> 
     </ThemeProvider>
-      
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")
