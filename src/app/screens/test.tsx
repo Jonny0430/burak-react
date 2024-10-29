@@ -22,7 +22,7 @@ class Test extends Component  {
 
     componentDidMount() {
        console.log("componentDidMount"); 
-       //runs after first render 
+       //runs after first render Bekent datani serverdan olish uchun ishlatiladi
     }
   
     
