@@ -15,7 +15,7 @@ class Test extends Component  {
       this.setState({
         color: "blue", 
         brand: "Tesla",
-        model: "Model 5",
+        model: "Model S",
         year: 2023
     });
     };
