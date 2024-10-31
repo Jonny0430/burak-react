@@ -1,3 +1,5 @@
+import { Member } from "./member";
+import { Product } from "./product";
 
 
 
@@ -5,9 +7,12 @@
 export interface AppRootState {
     homePage: HomePageState;
 }
-
+ /** HomePage **/
 export interface HomePageState {
-    popularDishes: [];
-    newDished: [];
-    topUsers: [];
+    popularDishes: Product[];
+    newDished: Product[];
+    topUsers: Member[];
 }
+
+ /** Products Page **/
+ /** Orders Page **/
