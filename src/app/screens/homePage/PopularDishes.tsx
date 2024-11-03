@@ -7,6 +7,7 @@ import CardContent from '@mui/joy/CardContent';
 import Typography from '@mui/joy/Typography';
 import DescriptionOutlined from "@mui/icons-material/DescriptionOutlined";
 import CardOverflow from '@mui/joy/CardOverflow';
+
 import { useSelector } from "react-redux";
 import { createSelector} from "reselect";
 import { Product } from "../../../lib/types/product";
@@ -14,7 +15,7 @@ import { retrievePopularDishes } from "./selector";
 import Visibility from "@mui/icons-material/Visibility";
 import { serverApi } from "../../../lib/config";
 
-/** Redux Slice & Selector */
+
 
 const popularDishesRetriever = createSelector(
     retrievePopularDishes, 
