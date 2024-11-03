@@ -3,7 +3,7 @@ import { serverApi } from "../../lib/config";
 import { Product, ProductInquiry } from "../../lib/types/product";
 
 class ProductService {
-    private readonly path: string;
+    private readonly path: string;  
 
     constructor() {
         this.path = serverApi;
