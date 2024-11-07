@@ -19,6 +19,7 @@ import { Product, ProductInquiry } from "../../../lib/types/product";
 import ProductService from "../../services/ProductService";
 import { serverApi } from "../../../lib/config";
 import { ProductCollection } from "../../../lib/enums/product.enum";
+import { useHistory } from "react-router-dom";
 
 /** Redux Slice & Selector */
 const actionDispatch = (dispatch: Dispatch) => ({
@@ -27,7 +28,7 @@ const actionDispatch = (dispatch: Dispatch) => ({
 
 const productsRetriever = createSelector(
   retrieveProducts, 
-  (products) => ({ products, })
+  (products) => ({ products})
 );
 
 
@@ -37,13 +38,14 @@ export default function Products() {
   const { products } = useSelector(productsRetriever);
   const [productSearch,setProductSearch] = useState<ProductInquiry>({
     page: 1,
-      limit: 2,
+      limit: 8,
       order: "createdAt",
       productCollection: ProductCollection.DISH,
       search: "",
     });
 
-    const [searchText, setSearchText] = useState<string>("")
+    const [searchText, setSearchText] = useState<string>("");
+    const history = useHistory();
 
   useEffect(() => {
     const product = new ProductService();
@@ -58,14 +60,14 @@ export default function Products() {
       productSearch.search = "";
       setProductSearch({ ...productSearch })
     }
-  })
+  }, [searchText]);
 
 //Handlers
 
 const searchCollectionHandler = (collection: ProductCollection) => {
 productSearch.page = 1;
 productSearch.productCollection = collection;
-setProductSearch({ ...productSearch });
+setProductSearch({ ...productSearch })
 }
 
 const searchOrderHandler = (order: string) => {
@@ -85,6 +87,10 @@ productSearch.page = value;
 setProductSearch({ ...productSearch });
 }
 
+const chooseDishHandler =(id: string) => {
+ history.push(`/products/${id}`);
+};
+
 return (
     <div className={"products"}>
       <Container>
@@ -96,10 +102,10 @@ return (
                 <input
                   type={"search"}
                   className={"single-search-input"}
-                  name={"singleResearch"}
+                  name={"singleResearch"} 
                   placeholder={"Type here"}
                   value={searchText}
-                  onChange={(e) => setSearchText(e.target.value)}
+                  onChange={(e) => {setSearchText(e.target.value)}}
                   onKeyDown={(e) => {
                     if (e.key === "Enter") searchProductHandler();
                   }}
@@ -212,7 +218,10 @@ return (
                   ? product.productVolume + "litre" 
                   : product.productSize + " size";
                   return (
-                    <Stack key={product._id} className={"product-card"}>
+                    <Stack key={product._id} 
+                    className={"product-card"}
+                    onClick={() => chooseDishHandler(product._id)}
+                    >
                       <Stack
                         className={"product-img"}
                         sx={{ backgroundImage: `url(${imagePath})` }}
@@ -254,7 +263,11 @@ return (
           </Stack>
           <Stack className={"pagination-section"}>
             <Pagination
-              count={2}
+              count={
+                products.length !== 0 
+                ? productSearch.page + 1
+                : productSearch.page
+              }
               page={productSearch.page}
               renderItem={(item: any) => (
                 <PaginationItem
@@ -309,5 +322,3 @@ return (
 }
 
 
-
-//52 
