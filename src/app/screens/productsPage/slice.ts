@@ -17,7 +17,7 @@ const productsPageSlice = createSlice({
         },
 
         setChosenProduct: (state, action) => {
-            state.products = action.payload;
+            state.chosenProduct = action.payload;
         },
 
         setProducts: (state, action) => {

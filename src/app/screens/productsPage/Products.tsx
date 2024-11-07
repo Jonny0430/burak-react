@@ -212,11 +212,12 @@ return (
             </Stack>
             <Stack className={"product-wrapper"}>
               {products.length !== 0 ? (
-                products.map((product: Product  ) => {
+                products.map((product: Product) => {
                   const imagePath = `${serverApi}/${product.productImages[0]}`
                   const sizeVolume = product.productCollection === ProductCollection.DRINK 
                   ? product.productVolume + "litre" 
                   : product.productSize + " size";
+
                   return (
                     <Stack key={product._id} 
                     className={"product-card"}
