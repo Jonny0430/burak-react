@@ -236,7 +236,6 @@ return (
                         <div className={"product-sale"}>{sizeVolume}</div>
                         <Button className={"shop-btn"}
                         onClick={(e) => {
-                          console.log("Button Pressed!");
                           onAdd({
                             _id: product._id,
                             quantity: 1,
@@ -313,7 +312,7 @@ return (
               <img src={"/img/sweets.webp"} alt={""}/>
             </Box>
             <Box className={"review-box"}>
-              <img src={"/img/seafood.webp"} alt={""}/>
+              // <img src={"/img/seafood.webp"} alt={""}/>
             </Box>
             <Box className={"review-box"}>
               <img src={"/img/doner.webp"} alt={""}/>
