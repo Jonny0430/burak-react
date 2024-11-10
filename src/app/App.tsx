@@ -20,7 +20,7 @@ import useBasket from './hooks/useBasket';
 
 function App() {
   const location = useLocation();
-  const { cartItems, onAdd, onRemove, onDelete, onDeleteAll, } = useBasket();
+  const { cartItems, onAdd, onRemove, onDelete, onDeleteAll } = useBasket();
   const [signupOpen, setSignupOpen] = useState<boolean>(false);
   const [loginOpen, setLoginOpen] = useState<boolean>(false);
 
@@ -38,6 +38,8 @@ function App() {
         onRemove={onRemove}
         onDelete={onDelete}
         onDeleteAll={onDeleteAll}
+        setSignupOpen={setSignupOpen}
+        setLoginOpen={setLoginOpen}
         />) :(
           <OtherNavbar 
         cartItems={cartItems} 
@@ -45,6 +47,8 @@ function App() {
         onRemove={onRemove}
         onDelete={onDelete}
         onDeleteAll={onDeleteAll}
+        setSignupOpen={setSignupOpen}
+        setLoginOpen={setLoginOpen}
       />
     )}
     <Switch>
