@@ -1,10 +1,13 @@
 import axios from "axios";
 import { serverApi } from "../../lib/config";
 import { CartItem } from "../../lib/types/search";
-import { Order, OrderInquiry, OrderItemInput } from "../../lib/types/order";
+import { Order, OrderInquiry, OrderItemInput, OrderUpdateInput } from "../../lib/types/order";
 
 
 class OrderService{
+  updateOrders(input: OrderUpdateInput) {
+    throw new Error("Method not implemented.");
+  }
 
     private readonly path: string;  
 

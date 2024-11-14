@@ -11,6 +11,7 @@ import { serverApi } from "../../../lib/config";
 import { Order, OrderItem } from "../../../lib/types/order";
 import { Product } from "../../../lib/types/product";
 
+
 /** Redux slice & Selector */
  
 const pausedOrdersRetriever = createSelector(
@@ -75,7 +76,7 @@ export default function PauseOrders() {
                   color="secondary"
                   className={"cancel-button"}
                 >
-                  {" "}
+                  
                   Cancel
                 </Button>
                 <Button variant="contained" className={"pay-button"}>

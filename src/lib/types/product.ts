@@ -6,14 +6,14 @@ import {
 
 export interface Product {
     _id: string;
-    productStatus: ProductStatus;
+    productStatus: ProductStatus | string;
     productCollection: ProductCollection;
     productName: string;
     productPrice: number;
     productLeftCount: number;
     productSize: ProductSize;
-    productVolume: number;
-    productDesc?: string;
+    productVolume?: number;
+    productDesc?: string | undefined;
     productImages: string[];
     productViews: number;
     createdAt: Date;
