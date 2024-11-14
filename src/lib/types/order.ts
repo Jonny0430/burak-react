@@ -28,7 +28,7 @@ export interface Order {
     updatedAt: Date;
     // from aggregations
     orderItems: OrderItem[];
-    productDate: Product[];
+    productData: Product[];
 }
 
 
